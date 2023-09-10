@@ -42,7 +42,7 @@ async function getMealDetails(mealId) {
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
     );
     const data = await response.json();
-    return data.meas[0];
+    return data.meals[0];
   } catch (error) {
     console.log("Error fetching meal details: ", error);
   }
@@ -68,8 +68,8 @@ function displayMeals(meals) {
 
 function showMealDetailsPopup(meal) {
   mealDetailsContent.innerHTML = `
-    <h2 class = "recipe-category">${meal.strMeal}</h2>
-    <p class = "recipe-category">${meal.strCategory}</p>
+    <h2 class="recipe-category">${meal.strMeal}</h2>
+    <p class="recipe-category">${meal.strCategory}</p>
     <div class="recipe-instruct">
       <h3>Instruction</h3>
       <p>${meal.strInstructions}</p> 
@@ -78,7 +78,7 @@ function showMealDetailsPopup(meal) {
     <div class="recipe-img">
      <img src="${meal.strMealThumb}" alt="${meal.strMeal}"></div>
     <div class="recipe-video">
-      <a href="${meal.strYoutube} target="_blank">Video Tutorial</a>
+      <a href="${meal.strYoutube}" target="_blank">Video Tutorial</a>
     </div> 
   
     `;
